@@ -8,9 +8,12 @@ export default async function TaskList() {
 
   return (
     <div className="grid gap-2">
-      {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
-      ))}
+      {tasks
+        .sort((a, b) => a.task.localeCompare(b.task))
+        .sort((a, b) => +a.completed - +b.completed)
+        .map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
       {tasks.length === 0 && (
         <div className="grid rounded-md px-3 py-2 dark:bg-neutral-800">
           No tasks yet, try adding one using the field above.

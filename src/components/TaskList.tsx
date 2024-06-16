@@ -27,7 +27,9 @@ function TaskItem({ task }: { task: Task }) {
   return (
     <div className="grid gap-1 rounded-md px-3 py-2 dark:bg-neutral-800">
       <div className="grid grid-cols-[1fr_auto]">
-        <span className="text-xl">{task.task}</span>
+        <span className={`text-xl ${task.completed && "opacity-40"}`}>
+          {task.task}
+        </span>
         <Checkbox task={task} />
       </div>
       <div className="flex">

@@ -22,7 +22,7 @@ export default async function TaskList() {
 
 function TaskItem({ task }: { task: Task }) {
   return (
-    <div className="grid rounded-md px-3 py-2 dark:bg-neutral-800">
+    <div className="grid gap-1 rounded-md px-3 py-2 dark:bg-neutral-800">
       <div className="grid grid-cols-[1fr_auto]">
         <span className="text-xl">{task.task}</span>
         <Checkbox task={task} />

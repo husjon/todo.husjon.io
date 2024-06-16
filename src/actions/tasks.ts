@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { db } from "../drizzle/db";
 import { Task, TaskTable } from "../drizzle/schema/task";
+import { eq } from "drizzle-orm";
 
 export async function createTask(formData: FormData) {
   const task = formData.get("task") as string;
@@ -23,6 +24,15 @@ export async function getTasks() {
   }
 }
 
-export async function completeTask(id: Task["id"], completed: boolean) {}
+export async function completeTask(id: Task["id"], completed: boolean) {
+  await db
+    .update(TaskTable)
+    .set({
+      completed,
+    })
+    .where(eq(TaskTable.id, id));
+
+  revalidatePath("/");
+}
 
 export async function deleteTask(id: Task["id"]) {}

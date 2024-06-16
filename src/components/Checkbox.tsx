@@ -8,8 +8,8 @@ export default function Checkbox({ task }: { task: Task }) {
     <input
       type="checkbox"
       className="my-auto size-5"
-      defaultChecked={task.completed}
-      onClick={() => {
+      checked={task.completed}
+      onChange={() => {
         completeTask(task.id, !task.completed);
       }}
     />

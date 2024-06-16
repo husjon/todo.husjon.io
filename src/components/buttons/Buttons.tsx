@@ -2,7 +2,8 @@
 
 import { ReactNode } from "react";
 import { BiSolidTrashAlt } from "react-icons/bi";
-import { Task, deleteTask } from "../../actions/tasks";
+import { deleteTask } from "../../actions/tasks";
+import { Task } from "../../drizzle/schema/task";
 
 interface Button {
   children: ReactNode;

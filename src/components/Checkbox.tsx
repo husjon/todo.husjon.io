@@ -1,6 +1,7 @@
 "use client";
 
-import { Task, completeTask } from "../actions/tasks";
+import { completeTask } from "../actions/tasks";
+import { Task } from "../drizzle/schema/task";
 
 export default function Checkbox({ task }: { task: Task }) {
   return (

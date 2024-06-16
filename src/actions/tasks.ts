@@ -1,10 +1,6 @@
 "use server";
 
-export interface Task {
-  id: string;
-  task: string;
-  completed: boolean;
-}
+import { Task } from "../drizzle/schema/task";
 
 export async function createTask(task: string) {}
 

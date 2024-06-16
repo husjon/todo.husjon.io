@@ -1,4 +1,5 @@
-import { Task, getTasks } from "../actions/tasks";
+import { getTasks } from "../actions/tasks";
+import { Task } from "../drizzle/schema/task";
 import { DeleteButton } from "./buttons/Buttons";
 import Checkbox from "./Checkbox";
 

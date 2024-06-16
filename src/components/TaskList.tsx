@@ -12,7 +12,7 @@ export default async function TaskList() {
       ))}
       {tasks.length === 0 && (
         <div className="grid rounded-md px-3 py-2 dark:bg-neutral-800">
-          No tasks yet, try to adding one using the field above.
+          No tasks yet, try adding one using the field above.
         </div>
       )}
     </div>

@@ -2,16 +2,20 @@
 
 import { completeTask } from "../actions/tasks";
 import { Task } from "../drizzle/schema/task";
+import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { Button } from "./buttons/Buttons";
 
 export default function Checkbox({ task }: { task: Task }) {
   return (
-    <input
-      type="checkbox"
-      className="my-auto size-5"
-      checked={task.completed}
-      onChange={() => {
-        completeTask(task.id, !task.completed);
-      }}
-    />
+    <Button
+      className="size-8"
+      onClick={() => completeTask(task.id, !task.completed)}
+    >
+      {task.completed ? (
+        <MdCheckBox className="size-full" />
+      ) : (
+        <MdCheckBoxOutlineBlank className="size-full" />
+      )}
+    </Button>
   );
 }

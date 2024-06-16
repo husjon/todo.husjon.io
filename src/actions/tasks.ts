@@ -35,4 +35,8 @@ export async function completeTask(id: Task["id"], completed: boolean) {
   revalidatePath("/");
 }
 
-export async function deleteTask(id: Task["id"]) {}
+export async function deleteTask(id: Task["id"]) {
+  await db.delete(TaskTable).where(eq(TaskTable.id, id));
+
+  revalidatePath("/");
+}

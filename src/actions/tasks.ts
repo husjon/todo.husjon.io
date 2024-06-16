@@ -16,11 +16,11 @@ export async function createTask(formData: FormData) {
 }
 
 export async function getTasks() {
-  return [
-    { id: "1", task: "Do thing nr. 1", completed: false },
-    { id: "2", task: "Do thing nr. 2", completed: false },
-    { id: "3", task: "Do thing nr. 3", completed: true },
-  ] as Task[];
+  try {
+    return await db.query.task.findMany();
+  } catch {
+    return [];
+  }
 }
 
 export async function completeTask(id: Task["id"], completed: boolean) {}

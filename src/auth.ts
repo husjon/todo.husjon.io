@@ -1,12 +1,12 @@
 import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { db } from "./drizzle/db";
+import authConfig from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  adapter: DrizzleAdapter(db),
+  session: { strategy: "jwt" },
+
   // Configure one or more authentication providers
-  providers: [
-    GithubProvider({
-      clientId: process.env.AUTH_GITHUB_ID as string,
-      clientSecret: process.env.AUTH_GITHUB_SECRET as string,
-    }),
-  ],
+  ...authConfig,
 });
